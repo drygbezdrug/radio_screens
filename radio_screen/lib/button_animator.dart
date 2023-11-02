@@ -20,19 +20,6 @@ class ButtonAnimatorState extends State<ButtonAnimator> {
           widget.onTap!();
         },
         child: Listener(
-            onPointerDown: _handlePointerDown,
-            onPointerUp: _handlePointerUp,
-            child: Center(
-              child: AnimatedScale(
-                scale: _scale,
-                curve: Curves.easeInOutCirc,
-                duration: const Duration(milliseconds: 150),
-                child: widget.childWidget,
-              ),
-            ),),
-      );
-    } else {
-      return Listener(
           onPointerDown: _handlePointerDown,
           onPointerUp: _handlePointerUp,
           child: Center(
@@ -42,7 +29,22 @@ class ButtonAnimatorState extends State<ButtonAnimator> {
               duration: const Duration(milliseconds: 150),
               child: widget.childWidget,
             ),
-          ),);
+          ),
+        ),
+      );
+    } else {
+      return Listener(
+        onPointerDown: _handlePointerDown,
+        onPointerUp: _handlePointerUp,
+        child: Center(
+          child: AnimatedScale(
+            scale: _scale,
+            curve: Curves.easeInOutCirc,
+            duration: const Duration(milliseconds: 150),
+            child: widget.childWidget,
+          ),
+        ),
+      );
     }
   }
 

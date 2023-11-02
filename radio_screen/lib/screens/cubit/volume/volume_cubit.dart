@@ -7,7 +7,7 @@ class VolumeCubit extends Cubit<VolumeState> {
     emit(VolumeState(volume: ++state.volume, isMute: state.isMute));
   }
 
-  void decrese() {
+  void decrease() {
     emit(VolumeState(volume: --state.volume, isMute: state.isMute));
   }
 

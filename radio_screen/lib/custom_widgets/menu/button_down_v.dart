@@ -19,10 +19,10 @@ class DownVolume extends StatelessWidget {
           builder: (context, state) {
             return ElevatedButton(
               onPressed: () {
-                context.read<VolumeCubit>().decrese();
+                context.read<VolumeCubit>().decrease();
               },
               onLongPress: () {
-                context.read<VolumeCubit>().decrese();
+                context.read<VolumeCubit>().decrease();
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

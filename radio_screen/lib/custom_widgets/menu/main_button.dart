@@ -6,13 +6,13 @@ class MainButton extends StatelessWidget {
   final List<Color> color;
   final String text;
   final double width;
-  bool changeGredient;
-  MainButton({
+  final bool changeGradient;
+  const MainButton({
     super.key,
     required this.color,
     required this.text,
     required this.width,
-    required this.changeGredient,
+    this.changeGradient = false,
   });
   @override
   Widget build(BuildContext context) {
@@ -24,8 +24,8 @@ class MainButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
           gradient: LinearGradient(
             begin:
-                changeGredient ? Alignment.centerRight : Alignment.centerLeft,
-            end: changeGredient ? Alignment.centerLeft : Alignment.centerRight,
+                changeGradient ? Alignment.centerRight : Alignment.centerLeft,
+            end: changeGradient ? Alignment.centerLeft : Alignment.centerRight,
             colors: color,
           ),
         ),

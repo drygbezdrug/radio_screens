@@ -1,19 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:radio_screen/const.dart';
 import 'package:radio_screen/custom_widgets/menu/menu.dart';
-import 'package:radio_screen/screens/stripes/stripe_screnn_center.dart';
-import 'package:radio_screen/screens/stripes/stripes_screen.dart';
-
-double sdp(BuildContext context, double px) {
-  double width = MediaQuery.of(context).size.width;
-  double height = MediaQuery.of(context).size.height;
-  if (width < height) {
-    return (px * 0.29166 / 300) * width;
-  } else {
-    return (px * 0.29166 / 300) * height;
-  }
-}
 
 class RadioInterface extends StatelessWidget {
   const RadioInterface({super.key});
@@ -30,8 +19,8 @@ class RadioInterface extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.only(
-            bottom: sdp(context, 58),
-            left: sdp(context, 60),
+            bottom: AppConst.sdp(context, 58),
+            left: AppConst.sdp(context, 60),
           ),
           child:
               // Row(

@@ -19,7 +19,7 @@ class AppConst {
   List<Color> silverGredient = [
     const Color(0xffc5c5c5),
     const Color(0xffffffff),
-    const Color(0xff9c9c9c)
+    const Color(0xff9c9c9c),
   ];
   List<Color> redGredient = [
     const Color(0xffC62929),

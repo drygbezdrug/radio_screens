@@ -5,11 +5,12 @@ class ConsaveButton extends StatelessWidget {
   final double height;
   final double width;
   final String text;
-  const ConsaveButton(
-      {super.key,
-      required this.height,
-      required this.width,
-      required this.text});
+  const ConsaveButton({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
