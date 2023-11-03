@@ -3,10 +3,15 @@ import 'package:radio_screen/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
 class SongContainer extends StatelessWidget {
+  const SongContainer({
+    super.key,
+    required this.color,
+    required this.text,
+  });
+
   final List<Color> color;
   final String text;
 
-  const SongContainer({super.key, required this.color, required this.text});
   @override
   Widget build(BuildContext context) {
     return ButtonAnimator(

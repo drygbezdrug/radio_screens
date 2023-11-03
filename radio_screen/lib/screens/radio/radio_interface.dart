@@ -22,19 +22,7 @@ class RadioInterface extends StatelessWidget {
             bottom: AppConst.sdp(context, 58),
             left: AppConst.sdp(context, 60),
           ),
-          child:
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Column(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Center(child: StripeCenter()),
-              //       ],
-              //     ),
-              //   ],
-              // )
-              const Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Column(
@@ -44,7 +32,6 @@ class RadioInterface extends StatelessWidget {
             ],
           ),
         ),
-        //  Align(alignment: Alignment.bottomLeft, child: MainButton())),
       ),
     );
   }
