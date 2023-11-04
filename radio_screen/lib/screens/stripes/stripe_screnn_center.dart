@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
 import 'package:radio_screen/custom_widgets/stripes/concave_button.dart';
-import 'package:radio_screen/custom_widgets/stripes/group_widget.dart';
+import 'package:radio_screen/custom_widgets/stripes/status_bar.dart';
 
 class StripeCenter extends StatelessWidget {
   const StripeCenter({super.key});
@@ -11,11 +11,11 @@ class StripeCenter extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        OneStripeGroupe(
-          svg: "assets/image/electro.svg",
-          name: "Repaire Generator",
+        StatusBar(
+          asset: "assets/image/electro.svg",
+          title: "Repaire Generator",
           hp: "assets/image/full_stripe_hp.svg",
-          textColor: AppConst().silverGredient,
+          titleColor: AppConst().silverGradient,
         ),
         Padding(
           padding: EdgeInsets.only(top: AppConst.sdp(context, 12)),

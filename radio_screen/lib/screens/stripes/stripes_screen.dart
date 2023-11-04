@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/custom_widgets/stripes/group_widget.dart';
+import 'package:radio_screen/custom_widgets/stripes/status_bar.dart';
 
 class StripeScreen extends StatelessWidget {
   const StripeScreen({super.key});
@@ -11,44 +11,43 @@ class StripeScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        OneStripeGroupe(
-          svg: "assets/image/full_heart.svg",
-          name: "Maks Maks",
+        StatusBar(
+          asset: "assets/image/full_heart.svg",
+          title: "Maks Maks",
           hp: "assets/image/full_stripe_hp.svg",
-          textColor: AppConst().silverGredient,
+          titleColor: AppConst().silverGradient,
         ),
         SizedBox(
           height: AppConst.sdp(context, 10),
         ),
-        OneStripeGroupe(
-          svg: "assets/image/kv1.svg",
-          name: "Maks Maks",
+        StatusBar(
+          asset: "assets/image/kv1.svg",
+          title: "Maks Maks",
           hp: "assets/image/full_stripe_hp.svg",
-          textColor: AppConst().silverGredient,
+          titleColor: AppConst().silverGradient,
         ),
         SizedBox(
           height: AppConst.sdp(context, 10),
         ),
-        OneStripeGroupe(
-          svg: "assets/image/kv4.svg",
-          name: "Maks Maks",
+        StatusBar(
+          asset: "assets/image/kv4.svg",
+          title: "Maks Maks",
           hp: "assets/image/full_stripe_hp.svg",
-          textColor: AppConst().silverGredient,
+          titleColor: AppConst().silverGradient,
         ),
         SizedBox(
           height: AppConst.sdp(context, 10),
         ),
-        OneStripeGroupe(
-          svg: "assets/image/kv3.svg",
-          name: "Maks Maks",
+        StatusBar(
+          asset: "assets/image/kv3.svg",
+          title: "Maks Maks",
           hp: "assets/image/full_stripe_hp.svg",
-          textColor: AppConst().redGredient,
+          titleColor: AppConst().redGradient,
         ),
-        OneStripeGroupe(
-          svg: "assets/image/kv2.svg",
-          name: "Maks Maks",
-          number: 5.toString(),
-          textColor: AppConst().silverGredient,
+        StatusBar(
+          asset: "assets/image/kv2.svg",
+          title: "4",
+          titleColor: AppConst().silverGradient,
         ),
       ],
     );

@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/custom_widgets/gredient_text.dart';
+import 'package:radio_screen/custom_widgets/gradient_text.dart';
 
-class OneStripeGroupe extends StatelessWidget {
-  OneStripeGroupe({
+class StatusBar extends StatelessWidget {
+  const StatusBar({
     super.key,
-    required this.svg,
-    required this.name,
+    required this.asset,
+    required this.title,
     this.hp,
-    required this.textColor,
-    this.number,
+    required this.titleColor,
   });
-  final String svg;
-  final String name;
-  String? hp;
-  final List<Color> textColor;
-  String? number;
+  final String asset;
+  final String title;
+  final String? hp;
+  final List<Color> titleColor;
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset(
-          svg,
-          height: AppConst.sdp(context, 70),
+          asset,
+          height: AppConst.sdp(context, 66),
         ),
         Padding(
           padding: EdgeInsets.only(left: AppConst.sdp(context, 20)),
@@ -33,16 +31,23 @@ class OneStripeGroupe extends StatelessWidget {
             children: [
               hp != null
                   ? GradientText(
-                      name,
+                      text: title,
                       style: TextStyle(
-                        fontFamily: "Norm",
-                        fontSize: AppConst.sdp(context, 27),
-                        fontWeight: FontWeight.w700,
-                      ),
+                          fontFamily: "Norm",
+                          fontSize: AppConst.sdp(context, 27),
+                          fontWeight: FontWeight.w700,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black.withOpacity(0.25),
+                              offset: const Offset(0, 4),
+                              blurRadius: 4,
+                            )
+                          ]),
                       gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: textColor),
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: titleColor,
+                      ),
                     )
                   : const SizedBox.shrink(),
               hp != null
@@ -52,21 +57,21 @@ class OneStripeGroupe extends StatelessWidget {
                       width: AppConst.sdp(context, 256),
                     )
                   : GradientText(
-                      number!,
+                      text: title,
                       style: TextStyle(
                         fontFamily: "Norm",
-                        fontSize: AppConst.sdp(context, 59),
+                        fontSize: AppConst.sdp(context, 69),
                         fontWeight: FontWeight.w500,
                       ),
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: textColor,
+                        colors: titleColor,
                       ),
                     ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
