@@ -20,8 +20,9 @@ class CenterStatusBar extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.only(
-              top: AppConst.sdp(context, 130),
-              right: AppConst.sdp(context, 56),),
+            top: AppConst.sdp(context, 130),
+            right: AppConst.sdp(context, 56),
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

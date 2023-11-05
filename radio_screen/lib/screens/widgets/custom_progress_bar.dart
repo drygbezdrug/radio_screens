@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomProgressBar extends CustomPainter {
-  const CustomProgressBar ({
+  const CustomProgressBar({
     required this.color,
   });
   final Color color;

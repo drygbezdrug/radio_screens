@@ -15,8 +15,8 @@ class StatusBar extends StatelessWidget {
 
   final String asset;
   final String title;
-  final Color? color;
   final List<Color> titleColor;
+  final Color? color;
   final double? barWidth;
 
   @override
