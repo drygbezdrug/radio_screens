@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/custom_widgets/stripes/custom_progress_bar.dart';
+import 'package:radio_screen/screens/widgets/custom_progress_bar.dart';
 
 class StatusBar extends StatelessWidget {
   const StatusBar({

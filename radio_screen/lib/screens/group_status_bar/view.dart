@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/custom_widgets/stripes/status_bar.dart';
+import 'package:radio_screen/screens/widgets/status_bar.dart';
 
 class GroupStatusBar extends StatelessWidget {
   const GroupStatusBar({super.key});

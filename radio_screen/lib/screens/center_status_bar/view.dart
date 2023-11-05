@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/custom_widgets/stripes/hollow_button.dart';
-import 'package:radio_screen/custom_widgets/stripes/status_bar.dart';
+import 'package:radio_screen/custom_widgets/hollow_button.dart';
+import 'package:radio_screen/screens/widgets/status_bar.dart';
 
 class CenterStatusBar extends StatelessWidget {
   const CenterStatusBar({super.key});
@@ -27,7 +27,7 @@ class CenterStatusBar extends StatelessWidget {
               children: [
                 StatusBar(
                   asset: "assets/image/electro.svg",
-                  title: "Repaire Generator",
+                  title: "Repair Generator",
                   color: Colors.white,
                   barWidth: AppConst.sdp(context, 180),
                   progressBorders: "assets/image/full_stripe_hp.svg",
