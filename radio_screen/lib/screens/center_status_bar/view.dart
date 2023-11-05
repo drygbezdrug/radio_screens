@@ -1,14 +1,24 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
 import 'package:radio_screen/custom_widgets/stripes/hollow_button.dart';
 import 'package:radio_screen/custom_widgets/stripes/status_bar.dart';
 
-class StripeCenter extends StatelessWidget {
-  const StripeCenter({super.key});
+class CenterStatusBar extends StatelessWidget {
+  const CenterStatusBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/image/back.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         StatusBar(
@@ -27,6 +37,8 @@ class StripeCenter extends StatelessWidget {
           ),
         ),
       ],
+    ),
+      ),
     );
   }
 }

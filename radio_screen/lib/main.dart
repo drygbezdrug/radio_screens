@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:radio_screen/screens/radio/radio_interface.dart';
+import 'package:flutter/services.dart';
+import 'package:radio_screen/screens/center_status_bar/view.dart';
+import 'package:radio_screen/screens/group_status_bar/view.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]).then((value) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const RadioInterface(),
+      home: const CenterStatusBar(),
     );
   }
 }

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
 
-class ConsaveButton extends StatelessWidget {
+class HollowButton extends StatelessWidget {
+  const HollowButton({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.text,
+  });
+
   final double height;
   final double width;
   final String text;
-  const ConsaveButton(
-      {super.key,
-      required this.height,
-      required this.width,
-      required this.text});
 
   @override
   Widget build(BuildContext context) {
