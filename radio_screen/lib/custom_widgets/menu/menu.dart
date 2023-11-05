@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radio_screen/const.dart';
 import 'package:radio_screen/custom_widgets/menu/main_button.dart';
-import 'package:radio_screen/custom_widgets/menu/volume_menu.dart';
+import 'package:radio_screen/custom_widgets/menu/volume_panel.dart';
 import 'package:radio_screen/custom_widgets/menu/song_container.dart';
 import 'package:radio_screen/custom_widgets/slide.dart';
 import 'package:radio_screen/screens/cubit/menu/menu_cubit.dart';
@@ -44,72 +44,72 @@ class _MenuState extends State<Menu> {
             ),
             child: state is SearchMenu
                 ? Padding(
-                  padding: EdgeInsets.only(
-                    left: AppConst.sdp(context, 30),
-                    right: AppConst.sdp(context, 20),
-                    top: AppConst.sdp(context, 20),
-                    bottom: AppConst.sdp(context, 30),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        // mainAxisSize: MainAxisSize.max,
-                        // crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                              bottom: AppConst.sdp(context, 5),
-                            ),
-                            child: GestureDetector(
-                              onTap: () {
-                                context.read<MenuCubit>().expand();
-                              },
-                              child: SvgPicture.asset(
-                                "assets/image/search.svg",
-                                height: AppConst.sdp(context, 82),
+                    padding: EdgeInsets.only(
+                      left: AppConst.sdp(context, 30),
+                      right: AppConst.sdp(context, 20),
+                      top: AppConst.sdp(context, 20),
+                      bottom: AppConst.sdp(context, 30),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          // mainAxisSize: MainAxisSize.max,
+                          // crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: AppConst.sdp(context, 5),
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  context.read<MenuCubit>().expand();
+                                },
+                                child: SvgPicture.asset(
+                                  "assets/image/search.svg",
+                                  height: AppConst.sdp(context, 82),
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            width: AppConst.sdp(context, 590),
-                            child: const TextField(
-                              autofocus: true,
-                              style: TextStyle(
-                                fontFamily: "Akrobat",
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
+                            SizedBox(
+                              width: AppConst.sdp(context, 590),
+                              child: const TextField(
+                                autofocus: true,
+                                style: TextStyle(
+                                  fontFamily: "Akrobat",
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                                decoration:
+                                    InputDecoration(border: InputBorder.none),
                               ),
-                              decoration: InputDecoration(
-                                  border: InputBorder.none),
                             ),
-                          ),
-                          MainButton(
-                            color: AppConst().redButton,
-                            text: 'Закрыть',
-                            width: 286,
-                            changeGradient: true,
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: AppConst.sdp(context, 25)),
-                        child: SizedBox(
-                          height: AppConst.sdp(context, 400),
-                          width: AppConst.sdp(context, 960),
-                          child: Slide(
-                            child: SongContainer(
-                              color: AppConst().purpleButton,
-                              text: 'Baby Type',
+                            MainButton(
+                              color: AppConst().redButton,
+                              text: 'Закрыть',
+                              width: 286,
+                              changeGradient: true,
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.only(top: AppConst.sdp(context, 25)),
+                          child: SizedBox(
+                            height: AppConst.sdp(context, 400),
+                            width: AppConst.sdp(context, 960),
+                            child: Slide(
+                              child: SongContainer(
+                                color: AppConst().purpleButton,
+                                text: 'Baby Type',
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                )
+                      ],
+                    ),
+                  )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -215,9 +215,7 @@ class _MenuState extends State<Menu> {
                               ),
                             ),
                           ),
-                          VolumeMenu(
-                            expand: expand,
-                          ),
+                          VolumePanel(),
                         ],
                       ),
                     ],

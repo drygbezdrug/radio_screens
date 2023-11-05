@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radio_screen/const.dart';
 import 'package:radio_screen/custom_widgets/menu/main_button.dart';
-import 'package:radio_screen/custom_widgets/menu/volume_menu.dart';
-import 'package:radio_screen/custom_widgets/menu/song_container.dart';
-import 'package:radio_screen/custom_widgets/slide.dart';
-import 'package:radio_screen/screens/cubit/menu/menu_cubit.dart';
-import 'package:radio_screen/screens/cubit/menu/menu_state.dart';
+import 'package:radio_screen/custom_widgets/menu/volume_panel.dart';
 
-enum RadioMenuType { radio, radioExpand, search }
+enum RadioMenuType { main, radio, search }
 
 class RadioMenu extends StatefulWidget {
   const RadioMenu({super.key});
@@ -20,216 +15,208 @@ class RadioMenu extends StatefulWidget {
 
 class _RadioMenuState extends State<RadioMenu> {
   bool expand = false;
+  Widget? radioMenu;
+  RadioMenuType radioMenuType = RadioMenuType.main;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        child: GestureDetector(
-          onDoubleTap: () {
-            print("rap");
-            setState(() {
-              expand = !expand;
-            });
-          },
-          child: BlocBuilder<MenuCubit, MenuState>(
-            builder: (context, state) {
-              return Container(
-                width: expand
-                    ? AppConst.sdp(context, 982)
-                    : AppConst.sdp(context, 985),
-                height: expand
-                    ? AppConst.sdp(context, 853)
-                    : AppConst.sdp(context, 454),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: const LinearGradient(
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                    colors: [Color(0xf2482574), Color(0xe508010f)],
+    switch (radioMenuType) {
+      case RadioMenuType.main:
+        radioMenu = Padding(
+          padding: EdgeInsets.only(
+            bottom: AppConst.sdp(context, 58),
+            left: AppConst.sdp(context, 60),
+          ),
+          child: Container(
+            height: AppConst.sdp(context, 454),
+            width: AppConst.sdp(context, 984),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+                colors: [
+                  const Color(0xff482575).withOpacity(0.95),
+                  const Color(0xff080210).withOpacity(0.9),
+                ],
+              ),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: AppConst.sdp(context, 34),
+                      bottom: AppConst.sdp(context, 34),
+                      left: AppConst.sdp(context, 33),
+                      right: AppConst.sdp(context, 43),
+                    ),
+                    child: Column(
+                      children: [
+                        MainButton(
+                          color: AppConst().purpleButton,
+                          text: 'Радио',
+                          changeGradient: false,
+                          onTap: () {
+                            setState(() {
+                              radioMenuType = RadioMenuType.radio;
+                            });
+                          },
+                        ),
+                        SizedBox(height: AppConst.sdp(context, 34)),
+                        MainButton(
+                          color: AppConst().purpleButton,
+                          text: 'Установить мелодию',
+                          changeGradient: false,
+                        ),
+                        SizedBox(height: AppConst.sdp(context, 34)),
+                        MainButton(
+                          color: AppConst().redButton,
+                          text: 'Закрыть',
+                          changeGradient: true,
+                          onTap: () => Navigator.of(context).pop(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                child: state is SearchMenu
-                    ? Padding(
+                const VolumePanel()
+              ],
+            ),
+          ),
+        );
+      case RadioMenuType.radio:
+        radioMenu = Padding(
+          padding: EdgeInsets.only(
+            bottom: AppConst.sdp(context, 58),
+            left: AppConst.sdp(context, 60),
+          ),
+          child: Container(
+            height: AppConst.sdp(context, 853),
+            width: AppConst.sdp(context, 984),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              gradient: LinearGradient(
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+                colors: [
+                  const Color(0xff482575).withOpacity(0.95),
+                  const Color(0xff080210).withOpacity(0.9),
+                ],
+              ),
+            ),
+            child: Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: AppConst.sdp(context, 34),
+                      left: AppConst.sdp(context, 33),
+                    ),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          "assets/image/music.svg",
+                          width: AppConst.sdp(context, 82),
+                          height: AppConst.sdp(context, 82),
+                        ),
+                        SizedBox(
+                          width: AppConst.sdp(context, 10),
+                        ),
+                        Text(
+                          "Сейчас играет: Моргенштерн",
+                          style: TextStyle(
+                            fontFamily: "Akrobat",
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontSize: AppConst.sdp(context, 40),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Padding(
                         padding: EdgeInsets.only(
-                          left: AppConst.sdp(context, 30),
-                          right: AppConst.sdp(context, 20),
-                          top: AppConst.sdp(context, 20),
-                          bottom: AppConst.sdp(context, 30),
+                          top: AppConst.sdp(context, 34),
+                          bottom: AppConst.sdp(context, 34),
+                          left: AppConst.sdp(context, 33),
+                          right: AppConst.sdp(context, 43),
                         ),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    bottom: AppConst.sdp(context, 5),
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      context.read<MenuCubit>().expand();
-                                    },
-                                    child: SvgPicture.asset(
-                                      "assets/image/search.svg",
-                                      height: AppConst.sdp(context, 82),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: AppConst.sdp(context, 590),
-                                  child: const TextField(
-                                    autofocus: true,
-                                    style: TextStyle(
-                                      fontFamily: "Akrobat",
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                    ),
-                                    decoration: InputDecoration(
-                                        border: InputBorder.none),
-                                  ),
-                                ),
-                                MainButton(
-                                  color: AppConst().redButton,
-                                  text: 'Закрыть',
-                                  width: 286,
-                                  changeGradient: true,
-                                ),
-                              ],
+                            MainButton(
+                              color: AppConst().purpleButton,
+                              text: 'Радио',
+                              changeGradient: false,
+                              onTap: () {
+                                setState(() {
+                                  radioMenuType = RadioMenuType.main;
+                                });
+                              },
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  top: AppConst.sdp(context, 25)),
-                              child: SizedBox(
-                                height: AppConst.sdp(context, 400),
-                                width: AppConst.sdp(context, 960),
-                                child: Slide(
-                                  child: SongContainer(
-                                    color: AppConst().purpleButton,
-                                    text: 'Baby Type',
-                                  ),
-                                ),
-                              ),
+                            SizedBox(height: AppConst.sdp(context, 34)),
+                            MainButton(
+                              color: AppConst().purpleButton,
+                              text: 'Установить мелодию',
+                              changeGradient: false,
+                            ),
+                            SizedBox(height: AppConst.sdp(context, 34)),
+                            MainButton(
+                              color: AppConst().purpleButton,
+                              text: 'Взять в руки',
+                              changeGradient: false,
+                              onTap: () {
+                                setState(() {
+                                  radioMenuType = RadioMenuType.radio;
+                                });
+                              },
+                            ),
+                            SizedBox(height: AppConst.sdp(context, 34)),
+                            MainButton(
+                              color: AppConst().purpleButton,
+                              text: 'Убрать в инвентарь',
+                              changeGradient: false,
+                              onTap: () {
+                                setState(() {
+                                  radioMenuType = RadioMenuType.radio;
+                                });
+                              },
+                            ),
+                            SizedBox(height: AppConst.sdp(context, 34)),
+                            MainButton(
+                              color: AppConst().redButton,
+                              text: 'Закрыть',
+                              changeGradient: true,
+                              onTap: () => Navigator.of(context).pop(),
                             ),
                           ],
                         ),
-                      )
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Visibility(
-                            visible: expand,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: AppConst.sdp(context, 33),
-                                left: AppConst.sdp(context, 34),
-                              ),
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      context.read<MenuCubit>().search();
-                                    },
-                                    child: SvgPicture.asset(
-                                      "assets/image/music.svg",
-                                      width: AppConst.sdp(context, 82),
-                                      height: AppConst.sdp(context, 82),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: AppConst.sdp(context, 10),
-                                  ),
-                                  Text(
-                                    "Сейчас играет: Моргенштерн",
-                                    style: TextStyle(
-                                      fontFamily: "Akrobat",
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: AppConst.sdp(context, 40),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(
-                                  AppConst.sdp(context, 34),
-                                ),
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      MainButton(
-                                        color: AppConst().purpleButton,
-                                        text: 'Радио',
-                                        width: 541,
-                                        changeGradient: false,
-                                      ),
-                                      SizedBox(
-                                        height: AppConst.sdp(context, 34),
-                                      ),
-                                      MainButton(
-                                        color: AppConst().purpleButton,
-                                        text: 'Установить мелодию',
-                                        width: 541,
-                                        changeGradient: false,
-                                      ),
-                                      SizedBox(
-                                        height: AppConst.sdp(context, 34),
-                                      ),
-                                      /////////
-                                      Visibility(
-                                        visible: expand,
-                                        child: Column(
-                                          children: [
-                                            MainButton(
-                                              color: AppConst().purpleButton,
-                                              text: 'Взять в руки',
-                                              width: 541,
-                                              changeGradient: false,
-                                            ),
-                                            SizedBox(
-                                              height: AppConst.sdp(context, 34),
-                                            ),
-                                            MainButton(
-                                              color: AppConst().purpleButton,
-                                              text: 'Убрать в инвентарь',
-                                              width: 541,
-                                              changeGradient: false,
-                                            ),
-                                            SizedBox(
-                                              height: AppConst.sdp(context, 34),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      /////////
-                                      MainButton(
-                                        color: AppConst().redButton,
-                                        text: 'Закрыть',
-                                        width: 541,
-                                        changeGradient: true,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              VolumeMenu(
-                                expand: expand,
-                              ),
-                            ],
-                          ),
-                        ],
                       ),
-              );
-            },
+                    ),
+                    VolumePanel()
+                  ],
+                ),
+              ],
+            ),
           ),
+        );
+      case RadioMenuType.search:
+    }
+
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Align(
+        alignment: Alignment.bottomLeft,
+        child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          child: radioMenu,
         ),
       ),
     );

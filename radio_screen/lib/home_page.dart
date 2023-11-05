@@ -7,19 +7,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () => showDialog(
-                barrierColor: Colors.transparent,
-                context: context,
-                builder: (context) => const RadioMenu(),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/image/back.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () => showDialog(
+                  barrierColor: Colors.transparent,
+                  context: context,
+                  builder: (context) => const RadioMenu(),
+                ),
+                child: const Text('Show Radio'),
               ),
-              child: const Text('Show Radio'),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
