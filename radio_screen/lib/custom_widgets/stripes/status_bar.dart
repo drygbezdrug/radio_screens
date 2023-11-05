@@ -9,14 +9,14 @@ class StatusBar extends StatelessWidget {
     required this.asset,
     required this.title,
     required this.titleColor,
-    required this.color,
+    this.color,
     this.progressBorders,
     this.barWidth,
   });
 
   final String asset;
   final String title;
-  final Color color;
+  final Color? color;
   final List<Color> titleColor;
   final String? progressBorders;
   final double? barWidth;
@@ -24,7 +24,6 @@ class StatusBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset(
           asset,
@@ -83,13 +82,15 @@ class StatusBar extends StatelessWidget {
                               barWidth ?? 0,
                               AppConst.sdp(context, 15),
                             ),
-                            painter: CustomProgressBar(color: color),
+                            painter:
+                                CustomProgressBar(color: color ?? Colors.white),
                           ),
                         ),
                         SvgPicture.asset(
                           "assets/image/progress_borders.svg",
                           width: AppConst.sdp(context, 256),
-                          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(
+                              color ?? Colors.white, BlendMode.srcIn,),
                         ),
                       ],
                     ),

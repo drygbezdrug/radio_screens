@@ -18,26 +18,34 @@ class CenterStatusBar extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        StatusBar(
-          asset: "assets/image/electro.svg",
-          title: "Repaire Generator",
-          color: Colors.white,
-          progressBorders: "assets/image/full_stripe_hp.svg",
-          titleColor: AppConst().silverGradient,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                StatusBar(
+                  asset: "assets/image/electro.svg",
+                  title: "Repaire Generator",
+                  color: Colors.white,
+                  barWidth: AppConst.sdp(context, 180),
+                  progressBorders: "assets/image/full_stripe_hp.svg",
+                  titleColor: AppConst().silverGradient,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: AppConst.sdp(context, 12),
+                    left: AppConst.sdp(context, 85),
+                  ),
+                  child: HollowButton(
+                    text: "Отменить",
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
-        Padding(
-          padding: EdgeInsets.only(top: AppConst.sdp(context, 12)),
-          child: HollowButton(
-            height: AppConst.sdp(context, 47),
-            text: "Отмена",
-            width: AppConst.sdp(context, 193),
-          ),
-        ),
-      ],
-    ),
       ),
     );
   }

@@ -29,7 +29,6 @@ class GroupStatusBar extends StatelessWidget {
                   StatusBar(
                     asset: "assets/image/full_heart.svg",
                     title: "Maks Maks",
-                    color: Colors.white,
                     titleColor: AppConst().silverGradient,
                     barWidth: AppConst.sdp(context, 240),
                   ),
@@ -39,7 +38,6 @@ class GroupStatusBar extends StatelessWidget {
                   StatusBar(
                     asset: "assets/image/kv1.svg",
                     title: "Maks Makssssss",
-                    color: Colors.white,
                     titleColor: AppConst().silverGradient,
                     barWidth: AppConst.sdp(context, 180),
                   ),
@@ -49,7 +47,6 @@ class GroupStatusBar extends StatelessWidget {
                   StatusBar(
                     asset: "assets/image/kv4.svg",
                     title: "Maks Maks",
-                    color: Colors.white,
                     titleColor: AppConst().silverGradient,
                     barWidth: AppConst.sdp(context, 120),
                   ),
@@ -66,7 +63,6 @@ class GroupStatusBar extends StatelessWidget {
                   StatusBar(
                     asset: "assets/image/kv2.svg",
                     title: "4",
-                    color: Colors.white,
                     titleColor: AppConst().silverGradient,
                   ),
                 ],
