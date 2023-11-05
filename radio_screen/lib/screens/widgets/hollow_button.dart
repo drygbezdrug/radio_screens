@@ -30,10 +30,13 @@ class HollowButton extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              colors: [Color(0xff8f8f8f), Color(0x00252525)],
+              colors: [
+                const Color(0xff8f8f8f).withOpacity(0.65),
+                const Color(0x00252525),
+              ],
             ),
           ),
           child: Text(

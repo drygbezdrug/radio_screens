@@ -10,7 +10,6 @@ class StatusBar extends StatelessWidget {
     required this.title,
     required this.titleColor,
     this.color,
-    this.progressBorders,
     this.barWidth,
   });
 
@@ -18,7 +17,6 @@ class StatusBar extends StatelessWidget {
   final String title;
   final Color? color;
   final List<Color> titleColor;
-  final String? progressBorders;
   final double? barWidth;
 
   @override
@@ -90,7 +88,9 @@ class StatusBar extends StatelessWidget {
                           "assets/image/progress_borders.svg",
                           width: AppConst.sdp(context, 256),
                           colorFilter: ColorFilter.mode(
-                              color ?? Colors.white, BlendMode.srcIn,),
+                            color ?? Colors.white,
+                            BlendMode.srcIn,
+                          ),
                         ),
                       ],
                     ),
