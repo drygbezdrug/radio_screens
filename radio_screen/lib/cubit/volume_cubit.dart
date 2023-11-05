@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:radio_screen/screens/cubit/volume/volume_state.dart';
+import 'package:radio_screen/cubit/volume_state.dart';
 
 class VolumeCubit extends Cubit<VolumeState> {
   VolumeCubit() : super(VolumeState(volume: 50, isMute: false));

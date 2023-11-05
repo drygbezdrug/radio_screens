@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:radio_screen/button_animator.dart';
+import 'package:radio_screen/cubit/volume_cubit.dart';
+import 'package:radio_screen/cubit/volume_state.dart';
+import 'package:radio_screen/ui/radio/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/screens/cubit/volume/volume_cubit.dart';
-import 'package:radio_screen/screens/cubit/volume/volume_state.dart';
 
 class VolumePanel extends StatefulWidget {
   const VolumePanel({super.key});
@@ -25,7 +25,7 @@ class _VolumePanelState extends State<VolumePanel> {
           end: Alignment.centerLeft,
           colors: [
             const Color(0xFF7032C0).withOpacity(0.39),
-            const Color(0xFF843AE3).withOpacity(0.22)
+            const Color(0xFF843AE3).withOpacity(0.22),
           ],
         ),
       ),
@@ -126,7 +126,7 @@ class _VolumePanelState extends State<VolumePanel> {
                           "${state.volume}%",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: AppConst.sdp(context, 28)),
+                              fontSize: AppConst.sdp(context, 28),),
                         ),
                       ),
                     ),

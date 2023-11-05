@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:radio_screen/button_animator.dart';
+import 'package:radio_screen/ui/radio/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
 class MainButton extends StatelessWidget {
@@ -8,13 +8,14 @@ class MainButton extends StatelessWidget {
   final bool changeGradient;
   final void Function()? onTap;
   final double? width;
-  const MainButton(
-      {super.key,
-      required this.color,
-      required this.text,
-      this.onTap,
-      this.changeGradient = false,
-      this.width,});
+  const MainButton({
+    super.key,
+    required this.color,
+    required this.text,
+    this.onTap,
+    this.changeGradient = false,
+    this.width,
+  });
   @override
   Widget build(BuildContext context) {
     return ButtonAnimator(
@@ -25,12 +26,10 @@ class MainButton extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
             gradient: LinearGradient(
-              begin: changeGradient
-                  ? Alignment.centerRight
-                  : Alignment.centerLeft,
-              end: changeGradient
-                  ? Alignment.centerLeft
-                  : Alignment.centerRight,
+              begin:
+                  changeGradient ? Alignment.centerRight : Alignment.centerLeft,
+              end:
+                  changeGradient ? Alignment.centerLeft : Alignment.centerRight,
               colors: color,
             ),
           ),
