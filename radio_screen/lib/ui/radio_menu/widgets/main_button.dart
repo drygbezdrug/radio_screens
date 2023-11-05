@@ -3,10 +3,6 @@ import 'package:radio_screen/ui/radio_menu/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
 class MainButton extends StatelessWidget {
-  final List<Color> color;
-  final String text;
-  final void Function()? onTap;
-  final double? width;
   const MainButton({
     super.key,
     required this.color,
@@ -14,10 +10,16 @@ class MainButton extends StatelessWidget {
     this.onTap,
     this.width,
   });
+
+  final List<Color> color;
+  final String text;
+  final void Function()? onTap;
+  final double? width;
+
   @override
   Widget build(BuildContext context) {
     return ButtonAnimator(
-      childWidget: GestureDetector(
+      child: GestureDetector(
         onTap: onTap,
         child: Container(
           height: AppConst.sdp(context, 106),

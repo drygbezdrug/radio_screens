@@ -6,13 +6,9 @@ import 'package:radio_screen/cubit/volume_state.dart';
 import 'package:radio_screen/ui/radio_menu/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
-class VolumePanel extends StatefulWidget {
+class VolumePanel extends StatelessWidget {
   const VolumePanel({super.key});
-  @override
-  State<VolumePanel> createState() => _VolumePanelState();
-}
 
-class _VolumePanelState extends State<VolumePanel> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +29,7 @@ class _VolumePanelState extends State<VolumePanel> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ButtonAnimator(
-            childWidget: BlocBuilder<VolumeCubit, VolumeState>(
+            child: BlocBuilder<VolumeCubit, VolumeState>(
               builder: (context, state) {
                 return SizedBox(
                   width: AppConst.sdp(context, 289),
@@ -67,7 +63,7 @@ class _VolumePanelState extends State<VolumePanel> {
             height: AppConst.sdp(context, 34),
           ),
           ButtonAnimator(
-            childWidget: SizedBox(
+            child: SizedBox(
               width: AppConst.sdp(context, 289),
               height: AppConst.sdp(context, 106),
               child: BlocBuilder<VolumeCubit, VolumeState>(
@@ -86,7 +82,7 @@ class _VolumePanelState extends State<VolumePanel> {
                       ),
                       backgroundColor: const Color(0xFFFF5252).withOpacity(0.5),
                       side: BorderSide(
-                        color: Color(0xFFFF5252).withOpacity(0.6),
+                        color: const Color(0xFFFF5252).withOpacity(0.6),
                         width: AppConst.sdp(context, 2),
                       ),
                     ),

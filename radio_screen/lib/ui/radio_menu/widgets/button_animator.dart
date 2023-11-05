@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ButtonAnimator extends StatefulWidget {
-  final Widget childWidget;
-  final Function? onTap;
-  const ButtonAnimator({required this.childWidget, this.onTap, super.key});
+  const ButtonAnimator({
+    required this.child,
+    super.key,
+  });
+
+  final Widget child;
 
   @override
   ButtonAnimatorState createState() => ButtonAnimatorState();
@@ -14,38 +17,18 @@ class ButtonAnimatorState extends State<ButtonAnimator> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.onTap != null) {
-      return GestureDetector(
-        onTap: () {
-          widget.onTap!();
-        },
-        child: Listener(
-          onPointerDown: _handlePointerDown,
-          onPointerUp: _handlePointerUp,
-          child: Center(
-            child: AnimatedScale(
-              scale: _scale,
-              curve: Curves.easeInOutCirc,
-              duration: const Duration(milliseconds: 150),
-              child: widget.childWidget,
-            ),
-          ),
+    return Listener(
+      onPointerDown: _handlePointerDown,
+      onPointerUp: _handlePointerUp,
+      child: Center(
+        child: AnimatedScale(
+          scale: _scale,
+          curve: Curves.easeInOutCirc,
+          duration: const Duration(milliseconds: 150),
+          child: widget.child,
         ),
-      );
-    } else {
-      return Listener(
-        onPointerDown: _handlePointerDown,
-        onPointerUp: _handlePointerUp,
-        child: Center(
-          child: AnimatedScale(
-            scale: _scale,
-            curve: Curves.easeInOutCirc,
-            duration: const Duration(milliseconds: 150),
-            child: widget.childWidget,
-          ),
-        ),
-      );
-    }
+      ),
+    );
   }
 
   void _handlePointerDown(PointerDownEvent event) {

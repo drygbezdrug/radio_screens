@@ -4,6 +4,7 @@ import 'package:radio_screen/const.dart';
 
 class SongsList extends StatelessWidget {
   const SongsList({super.key});
+
   @override
   Widget build(BuildContext context) {
     final scrollController = ScrollController();
@@ -23,14 +24,14 @@ class SongsList extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.only(right: AppConst.sdp(context, 60)),
             child: ButtonAnimator(
-              childWidget: Container(
+              child: Container(
                 height: AppConst.sdp(context, 81),
                 decoration: BoxDecoration(
                   borderRadius:
                       BorderRadius.circular(AppConst.sdp(context, 10)),
                   gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
                     colors: AppConst().purpleButton,
                   ),
                 ),
