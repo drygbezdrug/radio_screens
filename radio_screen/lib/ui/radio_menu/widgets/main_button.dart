@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:radio_screen/ui/radio/widgets/button_animator.dart';
+import 'package:radio_screen/ui/radio_menu/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
 class MainButton extends StatelessWidget {
   final List<Color> color;
   final String text;
-  final bool changeGradient;
   final void Function()? onTap;
   final double? width;
   const MainButton({
@@ -13,7 +12,6 @@ class MainButton extends StatelessWidget {
     required this.color,
     required this.text,
     this.onTap,
-    this.changeGradient = false,
     this.width,
   });
   @override
@@ -26,10 +24,8 @@ class MainButton extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
             gradient: LinearGradient(
-              begin:
-                  changeGradient ? Alignment.centerRight : Alignment.centerLeft,
-              end:
-                  changeGradient ? Alignment.centerLeft : Alignment.centerRight,
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
               colors: color,
             ),
           ),

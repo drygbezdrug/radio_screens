@@ -14,8 +14,14 @@ class AppConst {
   }
 
   ///////////////
-  List<Color> purpleButton = [const Color(0xff6e34b7), const Color(0x00723ab8)];
-  List<Color> redButton = [const Color(0xffb83535), const Color(0xff682323)];
+  List<Color> purpleButton = [
+    const Color(0xFF723BB9).withOpacity(0),
+    const Color(0xff6E35B8),
+  ];
+  List<Color> redButton = [
+    const Color(0xffB83535),
+    const Color(0xff682323),
+  ];
   List<Color> silverGredient = [
     const Color(0xffc5c5c5),
     const Color(0xffffffff),

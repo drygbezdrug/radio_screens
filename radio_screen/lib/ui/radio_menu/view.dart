@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/ui/radio/widgets/songs_list.dart';
-import 'package:radio_screen/ui/radio/widgets/main_button.dart';
-import 'package:radio_screen/ui/radio/widgets/volume_panel.dart';
+import 'package:radio_screen/ui/radio_menu/widgets/songs_list.dart';
+import 'package:radio_screen/ui/radio_menu/widgets/main_button.dart';
+import 'package:radio_screen/ui/radio_menu/widgets/volume_panel.dart';
 
 enum RadioMenuType { main, radio, search }
 
@@ -31,7 +31,7 @@ class _RadioMenuState extends State<RadioMenu> {
             height: AppConst.sdp(context, 454),
             width: AppConst.sdp(context, 984),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
               gradient: LinearGradient(
                 begin: Alignment.centerRight,
                 end: Alignment.centerLeft,
@@ -57,7 +57,6 @@ class _RadioMenuState extends State<RadioMenu> {
                         MainButton(
                           color: AppConst().purpleButton,
                           text: 'Радио',
-                          changeGradient: false,
                           onTap: () {
                             setState(() {
                               radioMenuType = RadioMenuType.radio;
@@ -68,7 +67,6 @@ class _RadioMenuState extends State<RadioMenu> {
                         MainButton(
                           color: AppConst().purpleButton,
                           text: 'Установить мелодию',
-                          changeGradient: false,
                           onTap: () {
                             setState(() {
                               radioMenuType = RadioMenuType.search;
@@ -79,7 +77,6 @@ class _RadioMenuState extends State<RadioMenu> {
                         MainButton(
                           color: AppConst().redButton,
                           text: 'Закрыть',
-                          changeGradient: true,
                           onTap: () => Navigator.of(context).pop(),
                         ),
                       ],
@@ -102,7 +99,7 @@ class _RadioMenuState extends State<RadioMenu> {
             height: AppConst.sdp(context, 853),
             width: AppConst.sdp(context, 984),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
               gradient: LinearGradient(
                 begin: Alignment.centerRight,
                 end: Alignment.centerLeft,
@@ -160,7 +157,6 @@ class _RadioMenuState extends State<RadioMenu> {
                             MainButton(
                               color: AppConst().purpleButton,
                               text: 'Радио',
-                              changeGradient: false,
                               onTap: () {
                                 setState(() {
                                   radioMenuType = RadioMenuType.main;
@@ -171,7 +167,6 @@ class _RadioMenuState extends State<RadioMenu> {
                             MainButton(
                               color: AppConst().purpleButton,
                               text: 'Установить мелодию',
-                              changeGradient: false,
                               onTap: () {
                                 setState(() {
                                   radioMenuType = RadioMenuType.search;
@@ -182,19 +177,16 @@ class _RadioMenuState extends State<RadioMenu> {
                             MainButton(
                               color: AppConst().purpleButton,
                               text: 'Взять в руки',
-                              changeGradient: false,
                             ),
                             SizedBox(height: AppConst.sdp(context, 34)),
                             MainButton(
                               color: AppConst().purpleButton,
                               text: 'Убрать в инвентарь',
-                              changeGradient: false,
                             ),
                             SizedBox(height: AppConst.sdp(context, 34)),
                             MainButton(
                               color: AppConst().redButton,
                               text: 'Закрыть',
-                              changeGradient: true,
                               onTap: () => Navigator.of(context).pop(),
                             ),
                           ],
@@ -219,7 +211,7 @@ class _RadioMenuState extends State<RadioMenu> {
             height: AppConst.sdp(context, 566),
             width: AppConst.sdp(context, 1010),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
               gradient: LinearGradient(
                 begin: Alignment.centerRight,
                 end: Alignment.centerLeft,
@@ -277,7 +269,6 @@ class _RadioMenuState extends State<RadioMenu> {
                         child: MainButton(
                           color: AppConst().redButton,
                           text: 'Закрыть',
-                          changeGradient: true,
                           onTap: () {
                             setState(() {
                               radioMenuType = RadioMenuType.main;

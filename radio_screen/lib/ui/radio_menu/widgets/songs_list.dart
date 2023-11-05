@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:radio_screen/ui/radio/widgets/button_animator.dart';
+import 'package:radio_screen/ui/radio_menu/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
 class SongsList extends StatelessWidget {

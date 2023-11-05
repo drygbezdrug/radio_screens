@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radio_screen/cubit/volume_cubit.dart';
 import 'package:radio_screen/cubit/volume_state.dart';
-import 'package:radio_screen/ui/radio/widgets/button_animator.dart';
+import 'package:radio_screen/ui/radio_menu/widgets/button_animator.dart';
 import 'package:radio_screen/const.dart';
 
 class VolumePanel extends StatefulWidget {
@@ -19,7 +19,7 @@ class _VolumePanelState extends State<VolumePanel> {
       height: AppConst.sdp(context, 700),
       width: AppConst.sdp(context, 367),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(AppConst.sdp(context, 10)),
         gradient: LinearGradient(
           begin: Alignment.centerRight,
           end: Alignment.centerLeft,
@@ -48,9 +48,9 @@ class _VolumePanelState extends State<VolumePanel> {
                             BorderRadius.circular(AppConst.sdp(context, 10)),
                       ),
                       backgroundColor: const Color(0x7f9eff51),
-                      side: const BorderSide(
-                        color: Color(0xff9EFF52),
-                        width: 0.5,
+                      side: BorderSide(
+                        color: const Color(0xff9EFF52).withOpacity(0.5),
+                        width: AppConst.sdp(context, 2),
                       ),
                     ),
                     child: SvgPicture.asset(
@@ -84,10 +84,10 @@ class _VolumePanelState extends State<VolumePanel> {
                         borderRadius:
                             BorderRadius.circular(AppConst.sdp(context, 10)),
                       ),
-                      backgroundColor: const Color(0x7fff5151),
-                      side: const BorderSide(
-                        color: Color(0xffFF5252),
-                        width: 0.5,
+                      backgroundColor: const Color(0xFFFF5252).withOpacity(0.5),
+                      side: BorderSide(
+                        color: Color(0xFFFF5252).withOpacity(0.6),
+                        width: AppConst.sdp(context, 2),
                       ),
                     ),
                     child: SvgPicture.asset(
@@ -109,8 +109,9 @@ class _VolumePanelState extends State<VolumePanel> {
                 width: AppConst.sdp(context, 289),
                 height: AppConst.sdp(context, 106),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0x826b32b1),
+                  borderRadius:
+                      BorderRadius.circular(AppConst.sdp(context, 10)),
+                  color: const Color(0xFF6B33B1).withOpacity(0.51),
                 ),
                 child: Row(
                   children: [
@@ -118,15 +119,17 @@ class _VolumePanelState extends State<VolumePanel> {
                       width: AppConst.sdp(context, 106),
                       height: AppConst.sdp(context, 106),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius:
+                            BorderRadius.circular(AppConst.sdp(context, 10)),
                         color: const Color(0x826b32b1),
                       ),
                       child: Center(
                         child: Text(
                           "${state.volume}%",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: AppConst.sdp(context, 28),),
+                            color: Colors.white,
+                            fontSize: AppConst.sdp(context, 28),
+                          ),
                         ),
                       ),
                     ),
