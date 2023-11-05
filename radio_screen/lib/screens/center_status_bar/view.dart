@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:radio_screen/const.dart';
-import 'package:radio_screen/custom_widgets/hollow_button.dart';
+import 'package:radio_screen/screens/widgets/hollow_button.dart';
 import 'package:radio_screen/screens/widgets/status_bar.dart';
 
 class CenterStatusBar extends StatelessWidget {
